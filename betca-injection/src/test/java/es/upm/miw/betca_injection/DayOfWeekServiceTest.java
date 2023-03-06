@@ -19,4 +19,9 @@ class DayOfWeekServiceTest {
         assertEquals(LocalDate.now().getDayOfWeek().toString(), dayOfWeekService.dayOfWeek());
     }
 
+    @Test
+    void testGetAuthor() {
+        assertEquals("david", dayOfWeekService.getAuthor());
+    }
+
 }
