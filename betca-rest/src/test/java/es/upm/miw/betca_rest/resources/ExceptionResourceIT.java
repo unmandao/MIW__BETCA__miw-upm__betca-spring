@@ -86,6 +86,16 @@ public class ExceptionResourceIT {
     }
 
     @Test
+    void testCreateBornDateAdultError() {
+        LocalDateTime bornDate17YearsAgo = LocalDateTime.now().minusYears(17);
+        this.webTestClient
+                .post().uri(REACTIVE_EXCEPTIONS)
+                .body(Mono.just(new Dto(20, "daemon", Gender.FEMALE, bornDate17YearsAgo, BigDecimal.TEN)), Dto.class)
+                .exchange()
+                .expectStatus().isBadRequest();
+    }
+
+    @Test
     void testCreatePriceError() {
         this.webTestClient
                 .post().uri(REACTIVE_EXCEPTIONS)
