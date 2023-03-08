@@ -25,6 +25,7 @@ public class ValidatedDto {
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private Gender gender;
     @Past
+    @Adult
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime bornDate;
     @PositiveBigDecimal
